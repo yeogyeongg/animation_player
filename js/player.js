@@ -4,8 +4,7 @@ const pauseBtn = document.querySelector('#pauseBtn');
 const stopBtn = document.querySelector('#stopBtn');
 const timeline = document.querySelector('.timeline');
 
-
-// 초 -> 00:00 형태로 format
+// 영상 초 -> 00:00 형태로 format
 function formatTime(seconds) {
 	let min = Math.floor(seconds / 60)
 	let sec = Math.floor(seconds - (min * 60));
