@@ -3,8 +3,6 @@ const playBtn = document.querySelector('#playBtn');
 const pauseBtn = document.querySelector('#pauseBtn');
 const stopBtn = document.querySelector('#stopBtn');
 const timeline = document.querySelector('.timeline');
-const thumb = document.querySelector('.slider-thumb');
-const progressBar = document.querySelector('.progress');
 
 
 // 초 -> 00:00 형태로 format
@@ -24,6 +22,7 @@ const getTotalTime = () => {
 const getCurrentTime = () => {
 	document.querySelector('.now_time').textContent = formatTime(aniVideo.currentTime);
 }
+
 // 비디오 로드 될때
 aniVideo.addEventListener('loadedmetadata', getTotalTime);
 // 재생이 가능한 상태일 경우
@@ -37,6 +36,7 @@ function playTrack(){
 	pauseBtn.style.display = 'block'
 	setInterval(getCurrentTime, 1000);
 }
+
 // 일시정지 버튼 눌렀을 때
 pauseBtn.addEventListener('click', pauseTrack);
 function pauseTrack(){
@@ -44,6 +44,7 @@ function pauseTrack(){
 	pauseBtn.style.display = 'none'
 	playBtn.style.display = 'block'
 }
+
 // 음원이 끝나면
 aniVideo.addEventListener('ended', () => setTimeout(stopTrack, 1000));
 // stop 버튼 눌렀을 때
@@ -57,51 +58,40 @@ function stopTrack(){
 aniVideo.addEventListener('timeupdate', updateProgress);
 function updateProgress() {
 	const progress = (aniVideo.currentTime / aniVideo.duration) * 100;
-	progressBar.style.width = progress + '%';
-	thumb.style.left = progress + '%';
+	document.querySelector('.progress').style.width = progress + '%';
+	document.querySelector('.slider-thumb').style.left = progress + '%';
 }
 
 
-let isMouseDown = false;
-timeline.addEventListener("mousedown", function(event) {
-	isMouseDown = true;
-	seek(event);
-});
-timeline.addEventListener('mousemove', seek);
-timeline.addEventListener('mouseup', function (event) {
-	isMouseDown = false;
-	seek(event);
-});
-timeline.addEventListener('mouseout', function (event) {
-	isMouseDown = false;
-	seek(event);
-});
-function seek(event){
-	if(isMouseDown) {
-		const timelineWidth = timeline.clientWidth;
-		const clickOffset = event.offsetX;
-		const duration = aniVideo.duration;
-		const seekTime = (clickOffset / timelineWidth) * duration;
-		aniVideo.currentTime = seekTime;
-		updateProgress()
-		getCurrentTime()
+/* 타임라인 클릭/드래그 하면서 구간 이동 */
+timeline.addEventListener('click', moveTimeline);
+timeline.addEventListener('mousedown', startDrag);
+function startDrag(event) {
+	event.preventDefault();
+
+	document.addEventListener('mousemove', moveTimeline);
+	document.addEventListener('mouseup', stopDrag);
+}
+
+function moveTimeline(event) {
+	const timelineWidth = timeline.clientWidth;
+	const duration = aniVideo.duration;
+	let timelineRect = timeline.getBoundingClientRect();
+	let position = ((event.clientX - timelineRect.left) / timelineWidth) * duration;
+
+	if (position < 0) {
+		position = 0;
+	} else if (position > timelineRect.width) {
+		position = timelineRect.width;
 	}
+
+	aniVideo.currentTime = position;
+	updateProgress()
+	getCurrentTime()
 }
 
-function dragStart(event) {
-	event.dataTransfer.setData('text/plain', event.target.id);
+function stopDrag(event) {
+	document.removeEventListener('mousemove', moveTimeline);
+	document.removeEventListener('mouseup', stopDrag);
 }
-
-function dragOver(event) {
-	event.preventDefault();
-}
-
-function drop(event) {
-	event.preventDefault();
-	var data = event.dataTransfer.getData('text/plain');
-	var draggedElement = document.getElementById(data);
-	var offsetX = event.clientX - draggedElement.getBoundingClientRect().left;
-	draggedElement.style.left = (event.clientX - offsetX) + 'px';
-	progressBar.style.width = (event.clientX - offsetX) + '%';
-	thumb.style.left = (event.clientX - offsetX) + '%';
-}
+/* 타임라인 클릭/드래그 하면서 구간 이동 */
