@@ -1,0 +1,529 @@
+@import url(./fonts.css);
+
+/* 초기화 */ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  cursor: default;
+}
+*, :after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+html,
+body {
+  position: relative;
+}
+
+iframe{
+  width: 100%;
+  height: 1080px;
+}
+
+.font_MPLUS {
+  font-family: "M-PLUS-1";
+  letter-spacing: -0.025em;
+}
+
+.font_MPLUS2 {
+  font-family: "M-PLUS-2";
+  letter-spacing: -0.025em;
+}
+
+.font_Ganpan {
+  font-family: "KCC-Ganpan";
+  letter-spacing: -0.025em;
+}
+
+.font_DIGI {
+  font-family: "DS-DIGI";
+  letter-spacing: -0.025em;
+}
+
+.font_Preten {
+  font-family: "Pretendard Variable";
+  letter-spacing: -0.025em;
+}
+
+.font_syongsyong {
+  font-family: "Cafe24Syongsyong";
+  letter-spacing: -0.025em;
+}
+
+.font_NanumPen {
+  font-family: "NanumPen";
+  letter-spacing: -0.025em;
+}
+
+/* 기본 설정 */
+:root {
+  --container-width: 1425px;
+  --container-height: 770px;
+}
+
+/* flex */
+.flex,
+.column,
+.row {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.flex-center,
+.justify-center {
+  justify-content: center;
+}
+
+.flex-center,
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.col-fit {
+  flex: 1 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* container */
+.container {
+  width: var(--container-width);
+  height: var(--container-height);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  border-radius: 40px;
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 5px 5px 25px 5px;
+  top: -5px;
+  left: -5px;
+  border-radius: 40px;
+  z-index: -1;
+}
+
+.container header {
+  font-family: "KCC-Ganpan";
+  font-size: 48px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding-top: 12px;
+}
+
+.container header h4 {
+  display: inline-block;
+  padding-left: 144px;
+  letter-spacing: -0.025em;
+}
+
+.container header .close {
+  border-radius: 50%;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 66px;
+  height: 66px;
+  margin-right: 12px;
+}
+
+.container header .close img {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  fill: #fff;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+
+/* content */
+.container .content {
+  text-align: center;
+  width: 100%;
+}
+
+/* button */
+.sm_button {
+  width: 84px;
+  height: 84px;
+  background-image: url(../img/common/button/sm_button_default.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  text-shadow: 0px 4px 5px #6378a6;
+}
+
+.sm_button:hover {
+  background-image: url(../img/common/button/sm_button_hover.png);
+}
+
+.sm_button:active {
+  background-image: url(../img/common/button/sm_button_down.png);
+}
+
+.md_button {
+  width: 164px;
+  height: 84px;
+  background-image: url(../img/common/button/md_button_default.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  text-shadow: 0px 4px 5px #446eaf;
+}
+
+.md_button:hover {
+  background-image: url(../img/common/button/md_button_hover.png);
+}
+
+.md_button:active {
+  background-image: url(../img/common/button/md_button_down.png);
+}
+
+.md_button.red {
+  background-image: url(../img/common/button/md_button_red_default.png);
+  text-shadow: 0px 4px 5px #bf5757;
+}
+
+.md_button.red:hover {
+  background-image: url(../img/common/button/md_button_red_hover.png);
+}
+
+.md_button.red:active {
+  background-image: url(../img/common/button/md_button_red_down.png);
+}
+
+.md_button.light {
+  background-image: url(../img/common/button/md_button_light_default.png);
+  text-shadow: 0px 4px 5px #446eaf;
+}
+
+.md_button.light:hover {
+  background-image: url(../img/common/button/md_button_light_hover.png);
+}
+
+.md_button.light:active {
+  background-image: url(../img/common/button/md_button_light_down.png);
+}
+
+.lg_button {
+  width: 204px;
+  height: 84px;
+  background-image: url(../img/common/button/lg_button_default.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  text-shadow: 0px 4px 5px #446eaf;
+}
+
+.lg_button:hover {
+  background-image: url(../img/common/button/lg_button_hover.png);
+}
+
+.lg_button:active {
+  background-image: url(../img/common/button/lg_button_down.png);
+}
+
+.lg_button.red {
+  background-image: url(../img/common/button/lg_button_red_default.png);
+  text-shadow: 0px 4px 5px #bf5757;
+}
+
+.lg_button.red:hover {
+  background-image: url(../img/common/button/lg_button_red_hover.png);
+}
+
+.lg_button.red:active {
+  background-image: url(../img/common/button/lg_button_red_down.png);
+}
+
+.lg_button.light {
+  background-image: url(../img/common/button/lg_button_light_default.png);
+  text-shadow: 0px 4px 5px #446eaf;
+}
+
+.lg_button.light:hover {
+  background-image: url(../img/common/button/lg_button_light_hover.png);
+}
+
+.lg_button.light:active {
+  background-image: url(../img/common/button/lg_button_light_down.png);
+}
+
+
+/* 모달 박스 */
+.modal_box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.modal_box.background{
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+/* 텍스트 클릭시 음원 활성화  */
+.audio_text{
+  transition: color 0.15s ease;
+}
+.audio_text.active, .audio_text:hover, 
+.page_content .active .answer:hover, 
+.page_content .active:hover .answer{
+  color: #ee226b;
+  cursor: pointer;
+}
+.page_content .answer{
+  cursor: pointer;
+  visibility: hidden;
+  text-align: center;
+  display: inline-block;
+}
+.page_content .active .answer{
+  visibility: visible;
+}
+.page_content .active .audio_text.active .answer{
+  visibility: visible;
+}
+.page_content .audio_text.active .answer{
+  visibility: hidden;
+}
+.audio_text ruby{
+  cursor: pointer;
+}
+
+/* audio control */
+.player {
+  display: flex;
+}
+
+.player .controls {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px 7px;
+  background: #f7f7f7;
+  border-radius: 30px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.player .controls .button {
+  width: 50px;
+  height: 50px;
+  background-color: #c0b8dc;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.player .controls .button::before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.player .controls .button.play::before {
+  background-image: url("../img/common/icon_controls_play-circle.svg");
+}
+.player .controls .button.reset::before {
+  background-image: url("../img/common/icon_controls_stop-circle.svg");
+}
+.player .controls .button.pause::before {
+  background-image: url("../img/common/icon_controls_pause-circle.svg");
+}
+
+.player .controls .timeline {
+  width: 240px;
+  height: 8px;
+  -webkit-appearance: none;
+  border-radius: 4px;
+  background: #e9e9e9;
+  box-shadow: inset 0px 4px 3px rgba(122, 122, 122, 0.15);
+  background-color: #E9E9E9;
+  background-repeat: no-repeat;
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+}
+.player .controls .timeline::-moz-range-thumb {
+  -moz-appearance: none;
+       appearance: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+.player .controls .timeline::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+.player .controls .timeline::-webkit-slider-runnable-track, .player .controls .timeline::-moz-range-track {
+  -webkit-appearance: none;
+}
+
+.range-slider{
+  position: relative;
+  display: flex;
+  user-select: none;
+  margin: 0 20px;
+  width: 230px;
+  user-select: none;
+}
+.player .slider-thumb{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background: #8F9FE9;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25), inset 0px -10px 4px #7587DE;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: none;
+}
+.progress{
+  width: 0;
+  height: 0.4rem;
+  border-radius: 3px;
+  background-color: #7564b5;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  pointer-events: none;
+}
+
+
+/* 스크롤 */
+.scrollBox {
+  overflow: hidden;
+  position: relative;
+}
+.scrollbarTrack {
+  width: 10px;
+  margin:  0;
+  height: 100%;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  background-color: #dfdfdf;
+}
+.scrollbarHandle {
+  position: relative;
+  width: 31px;
+  height: 78px;
+  cursor: pointer;
+  margin-left: -9.5px;
+  background-size: 31px 78px;
+  background-image: url(../img/common/scrollbar.png);
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+#scrollContent {
+  position: absolute;
+  top: 0px;
+  width: auto;
+  z-index: 20;
+}

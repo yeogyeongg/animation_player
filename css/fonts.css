@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "KCC-Ganpan";
+  src: url("../fonts/KCC-Ganpan/KCC-Ganpan.woff") format("woff"),
+    url("../fonts/KCC-Ganpan/KCC-Ganpan.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "DS-DIGI";
+  src: url("../fonts/DS-DIGI/DS-DIGIB.woff") format("woff"),
+    url("../fonts/DS-DIGI/DS-DIGIB.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "M-PLUS-1";
+  src: url("../fonts/M-PLUS-1/MPLUS1-VariableFont_wght.woff") format("woff"),
+    url("../fonts/M-PLUS-1/MPLUS1-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "M-PLUS-2";
+  src: url("../fonts/M-PLUS-2/MPLUS2-VariableFont_wght.woff") format("woff"),
+    url("../fonts/M-PLUS-2/MPLUS2-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Pretendard Variable";
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/Pretendard/PretendardVariable.woff2")
+    format("woff2-variations");
+}
+
+@font-face {
+  font-family: "Cafe24Syongsyong";
+  src: url("../fonts/Cafe24Syongsyong/Cafe24Syongsyong.woff") format("woff"),
+    url("../fonts/Cafe24Syongsyong/Cafe24Syongsyong.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NanumPen";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/NanumPen/daaDSSYiLGqEal3MvdA_FOL_3FkN2zuWfsNNAlvx8XyriiBoA4Qt-85VRg.119.woff2)
+    format("woff2");
+  unicode-range: U+30-38;
+}
+@font-face {
+  font-family: "NanumPen";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/NanumPen/daaDSSYiLGqEal3MvdA_FOL_3FkN2zuWfsNNAlvx8XyriiBoA4Qt-85VRg.118.woff2)
+    format("woff2");
+  unicode-range: U+39;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>대본보기</title>
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/padding_margin.css" />
+    <link rel="stylesheet" href="./css/animation.css" />
+  </head>
+  <body>
+    <div class="modal_box">
+      <div class="container column items-center" id="animation">
+        <div class="container_box">
+          <header>
+            <div class="flex top">
+              <h4>애니메이션</h4>
+
+              <div class="option flex">
+                <div class="flex voice_box">
+                  <button class="button click_sound voice_a active">
+                    <img src="./img/1.png" alt="" />
+                  </button>
+                  <button class="button click_sound voice_b active">
+                    <img src="./img/2.png" alt="" />
+                  </button>
+                  <button class="button click_sound voice_c">
+                    <img src="./img/3.png" alt="" />
+                  </button>
+                </div>
+                <div class="help">
+                  ?
+                  <span class="tooltiptext">
+                    역할을 선택하여<br />연습해 보세요.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <button class="close button click_sound">
+              <img src="./img/common/close.svg" alt="" />
+            </button>
+          </header>
+          <div class="content" style="height: 700px">
+            <div class="player">
+              <div class="video_box">
+                <video id="aniVideo" class="video">
+                  <source src="./video/animation.mp4" type="video/mp4" />
+                </video>
+                <div class="script jpn">
+                  きょうは あんまり あつく ないね
+                  <!-- 오늘은 그다지 덥지 않네. -->
+                </div>
+                <!-- kor, jpn은 한국어, 일본어를 나타냅니다. jpn 또는 kor 하나라도 없을경우 자막이 나타나지 않습니다. -->
+              </div>
+              <div class="animation_controler">
+                <div class="script_controls font_syongsyong">
+                  <button class="script_button click_sound">자막보기</button>
+                  <button class="translate_button click_sound">
+                    한국어보기
+                  </button>
+                </div>
+                <div class="controls">
+                  <button class="button play click_sound" id="playBtn"></button>
+                  <button class="button pause click_sound" style="display: none;" id="pauseBtn"></button>
+                  <button
+                    class="button reset click_sound"
+                    id="stopBtn"
+                  ></button>
+                  <div class="range-slider">
+                    <div class="timeline"></div>
+                    <div class="slider-thumb"></div>
+                    <div class="progress"></div>
+                  </div>
+                  <div class="time font_MPLUS">
+                    <span class="now_time">00:00</span>
+                    /
+                    <span class="total_time">00:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="./js/player.js"></script>
+  </body>
+</html>
